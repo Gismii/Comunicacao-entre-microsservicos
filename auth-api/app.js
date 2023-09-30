@@ -9,6 +9,7 @@ app.get("/api/status", (req, res) => {
     return res.status(200).json({
         service:"Auth-API",
         status: "up",
+        response: "ok",
         httpStatus: 200,
 
     });
