@@ -1,13 +1,14 @@
 import  express  from "express";
+import * as db from "./src/config/db/dataFake.js";
 
-import db from "./src/config/db/dataFake";
 
 
 const app = express();
 const env = process.env;
 const PORT = env.PORT || 8080;
+ 
 
-db.createInitialData();
+db.createInitialData()
 
 app.get("/api/status", (req, res) => {
 
@@ -28,3 +29,4 @@ app.listen(PORT, () =>{
     console.info(`Server starter successfuly at port ${PORT}`);
 
 });
+
