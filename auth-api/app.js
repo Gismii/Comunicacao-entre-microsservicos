@@ -1,5 +1,7 @@
 import  express  from "express";
 import * as db from "./src/config/db/dataFake.js";
+import userRoutes from "./src/modulos/user/routs/UserRoutes.js"
+
 
 
 
@@ -9,6 +11,10 @@ const PORT = env.PORT || 8080;
  
 
 db.createInitialData()
+
+app.use(express.json());
+
+app.use(userRoutes);
 
 app.get("/api/status", (req, res) => {
 
