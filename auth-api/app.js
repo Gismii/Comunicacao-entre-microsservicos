@@ -1,7 +1,7 @@
 import  express  from "express";
 import * as db from "./src/config/db/dataFake.js";
-import userRoutes from "./src/modulos/user/routs/UserRoutes.js"
-
+import userRoutes from "./src/modulos/user/routs/UserRoutes.js";
+import checkToken from "./src/config/auth/checkToken.js";
 
 
 
@@ -15,6 +15,8 @@ db.createInitialData()
 app.use(express.json());
 
 app.use(userRoutes);
+
+app.use(checkToken);
 
 app.get("/api/status", (req, res) => {
 
